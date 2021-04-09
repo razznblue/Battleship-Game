@@ -1,7 +1,6 @@
 import { Cell } from "./cell.js";
 
 const rows = 10;
-const cols = 10;
 
 // <-- Variable Guide -->
 //    type - Refers to if the board is for a player or computer
@@ -34,17 +33,15 @@ export class Board {
   }
 
   drawBoard(gameboard, canvas) {
-    //const cellCount = rows * cols;
     let count = 1;
     for (let i = 1; i < rows + 1; i++) {
       const row = this.createRow(gameboard, i);
-      for (let j = 1; j < cols + 1; j++) {
+      for (let j = 1; j < rows + 1; j++) {
         const cell = new Cell(gameboard, row, count, this);
         this.cells.push(cell);
         count++;
       }
     }
-
     canvas.appendChild(gameboard);
   }
 }
