@@ -3,57 +3,71 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --text-color: rgb(205, 205, 205);
+}
+body,
+.canvas,
+.board {
+  display: flex;
+  align-items: center;
+}
 body {
   padding: 3rem;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  color: var(--text-color);
+  background: #ffffff url(./img/background.jpg) no-repeat;
+  background-size: cover;
 }
 .canvas {
   height: 100vh;
   width: 100vw;
-  display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  margin-top: 3rem;
 }
-.player-board,
-.comp-board {
-  height: 80vh;
-  width: 40%;
-  display: flex;
+.board {
+  height: 30rem;
+  width: 30rem;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
   margin: 0 3rem;
-  /* relative is a help to position the labels for the game grid */
   position: relative;
+}
+.board,
+.cell {
+  border: 1px solid rgb(164, 164, 164);
 }
 .title {
   position: absolute;
-  left: 40%;
-  top: -4.5rem;
+  font-size: 1.5rem;
+  top: -4.7rem;
+  left: 35%;
 }
-.comp-board {
-  background: rgb(209, 209, 209);
+.computer-board {
+  background: rgb(118, 118, 118);
 }
 .cell {
   width: 10%;
+  min-width: 2rem;
   height: 10%;
-  border: 1px solid black;
+  min-height: 2rem;
+  background: rgb(33, 33, 33);
+}
+.cell:hover {
+  cursor: pointer;
+  background: rgb(62, 62, 62);
 }
 .label {
   color: rgb(221, 56, 56);
   font-size: 2rem;
   position: absolute;
+  transform: translate(-50%, -50%);
 }
-/* .y-label {
-    top: 2.5vh;
-    left: -5.5vh;
+.number-label {
+  top: -50%;
+  left: 50%;
 }
-.x-label {
-    top: -6vh;
-    left: 2.5vh;
-} */
+.text-label {
+  top: 50%;
+  left: -50%;
+}

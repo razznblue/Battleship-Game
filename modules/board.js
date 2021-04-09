@@ -26,7 +26,6 @@ export class Board {
     }
   }
   drawBoard(gameboard, canvas) {
-    // Draw Cells
     const cellCount = rows * cols;
     for (let i = 1; i < cellCount + 1; i++) {
       const cell = new Cell(gameboard, i, this);

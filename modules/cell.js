@@ -12,7 +12,6 @@ export class Cell {
     if (this.finishedDrawingCells(parentBoard)) {
       lettersIterator = 0;
     }
-    console.log("i" + lettersIterator);
   }
 
   createCellhtmlElement(cellNumber) {
@@ -28,7 +27,6 @@ export class Cell {
       if (cellNumber < 11) {
         this.createNumberLabel(htmlCell, cellNumber, label);
       } else if (cellNumber >= 10) {
-        console.log(this.lettersIterator);
         this.createTextLabel(htmlCell, cellNumber, label);
       }
     }
@@ -39,10 +37,7 @@ export class Cell {
       this.createTextLabel(htmlCell, cellNumber, label2);
     }
     label.innerText = cellNumber;
-    label.classList = "label";
-    label.style.top = "-50%";
-    label.style.left = "50%";
-    label.style.transform = "translate(-50%, -50%)";
+    label.classList = "label " + "number-label";
     htmlCell.appendChild(label);
   }
   createTextLabel(htmlCell, cellNumber, label) {
@@ -52,17 +47,12 @@ export class Cell {
       label.innerText = letters[lettersIterator + 1];
       lettersIterator++;
     }
-    label.classList = "label";
-    label.style.top = "50%";
-    label.style.left = "-50%";
-    label.style.transform = "translate(-50%, -50%)";
+    label.classList = "label  " + "text-label";
     htmlCell.appendChild(label);
   }
 
   finishedDrawingCells(board) {
-    console.log("length: " + board.cells.length);
     if (board.cells.length > 98) {
-      console.log("finished cell drawing for this board");
       return true;
     } else {
       return false;
@@ -70,8 +60,14 @@ export class Cell {
   }
 
   //   GAME LOGIC
-  containsShip() {
-    if (this.empty == true) {
+  setAsOccupied() {
+    this.empty = false;
+  }
+  setAsUnoccupied() {
+    this.empty = true;
+  }
+  isOccupied() {
+    if (!this.empty) {
       return true;
     } else {
       return false;
