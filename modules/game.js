@@ -1,5 +1,9 @@
 class Game {
-    constructor() {
-        
-    }
+  constructor() {}
+
+  startGame() {}
+
+  pauseGame() {}
+
+  endGame() {}
 }

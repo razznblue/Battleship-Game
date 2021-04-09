@@ -1,55 +1,38 @@
-const rows = 10
+import { Cell } from "./cell.js";
+
+const rows = 10;
 const cols = 10;
-const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+
+// <-- Variable Guide -->
+//    type - Refers to if the board is for a player or computer
+//    cssType - A helper variable for the DOM to cedice which board to select and draw
+//    canvas - Refers to the canvas object passed in from main
+//    board_array - An 2-D array passed in representing the board with ships placed
 
 export class Board {
-    constructor(type, cssClass, parent) {
-        this.setType(type, cssClass);
-        const gameboard = document.querySelector("." + this.cssClass);
-        console.log(gameboard);
-        this.drawBoard(gameboard, parent);
+  constructor(type, canvas, board_array) {
+    this.cells = [];
+    this.setBoardTypes(type);
+    const gameboard = document.querySelector("." + this.cssClass);
+    this.drawBoard(gameboard, canvas);
+  }
+  setBoardTypes(type) {
+    if (type === "player") {
+      this.isPlayerBoard = true;
+      this.cssClass = "player-board";
+    } else {
+      this.isPlayerBoard = false;
+      this.cssClass = "computer-board";
     }
-    setType(type, cssClass) {
-        if (type === "player") {
-            this.isPlayerBoard = true;
-        } else {
-            this.isPlayerBoard = false;
-        }
-        this.cssClass = cssClass;
+  }
+  drawBoard(gameboard, canvas) {
+    // Draw Cells
+    const cellCount = rows * cols;
+    for (let i = 1; i < cellCount + 1; i++) {
+      const cell = new Cell(gameboard, i, this);
+      this.cells.push(cell);
     }
-    drawBoard(gameboard, parent) {
-        // Draw Cells
-        for (let i = 1; i < 101; i++) {
-            const cell = document.createElement("div");
-            cell.classList = "cell " + "cell" + 1;
-            gameboard.appendChild(cell);
-        }
 
-        // Draw Y-Axis Labels
-        let ySpacing = 8;
-        let y = 1.5;
-        for (let i = 0; i < rows; i++) {
-            const yLabel = document.createElement("div");
-            yLabel.innerText = i + 1;
-            yLabel.classList = "label y-label";
-            yLabel.style.top = y + "vh";
-            gameboard.appendChild(yLabel);
-            y += ySpacing;
-        }
-
-        //Draw X-Axis Labels
-        let xSpacing = 7;
-        let x = 2;
-        for (let i = 0; i < cols; i++) {
-            const xLabel = document.createElement("div");
-            xLabel.innerText = letters[i];
-            xLabel.classList = "label x-label";
-            xLabel.style.left = x + "vh";
-            gameboard.appendChild(xLabel);
-            x += xSpacing;
-        }
-
-        parent.appendChild(gameboard);
-        console.log(parent)
-    }
+    canvas.appendChild(gameboard);
+  }
 }

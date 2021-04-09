@@ -1,5 +1,6 @@
 export class Ship {
-    constructor(size) {
-        this.size = size;
-    }
+  constructor(size) {
+    this.size = size;
+    this.cells = [];
+  }
 }
