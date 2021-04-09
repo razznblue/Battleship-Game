@@ -25,11 +25,24 @@ export class Board {
       this.cssClass = "computer-board";
     }
   }
+
+  createRow(board, rowNumber) {
+    const row = document.createElement("div");
+    row.classList = "row " + "row" + rowNumber;
+    board.appendChild(row);
+    return row;
+  }
+
   drawBoard(gameboard, canvas) {
-    const cellCount = rows * cols;
-    for (let i = 1; i < cellCount + 1; i++) {
-      const cell = new Cell(gameboard, i, this);
-      this.cells.push(cell);
+    //const cellCount = rows * cols;
+    let count = 1;
+    for (let i = 1; i < rows + 1; i++) {
+      const row = this.createRow(gameboard, i);
+      for (let j = 1; j < cols + 1; j++) {
+        const cell = new Cell(gameboard, row, count, this);
+        this.cells.push(cell);
+        count++;
+      }
     }
 
     canvas.appendChild(gameboard);

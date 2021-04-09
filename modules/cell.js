@@ -4,21 +4,21 @@ const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 let lettersIterator = 0;
 
 export class Cell {
-  constructor(gameboard, number, parentBoard) {
+  constructor(gameboard, row, number, parentBoard) {
     this.empty = true;
     this.gameboard = gameboard;
     this.cellNumber = number.toString();
-    this.createCellhtmlElement(this.cellNumber);
+    this.createCellhtmlElement(this.cellNumber, row);
     if (this.finishedDrawingCells(parentBoard)) {
       lettersIterator = 0;
     }
   }
 
-  createCellhtmlElement(cellNumber) {
+  createCellhtmlElement(cellNumber, row) {
     this.htmlCell = document.createElement("div");
     this.htmlCell.classList = "cell " + "cell" + cellNumber;
     this.addLabelCheck(this.htmlCell, cellNumber);
-    this.gameboard.appendChild(this.htmlCell);
+    row.appendChild(this.htmlCell);
   }
   addLabelCheck(htmlCell, cellNumber) {
     if (labeledCells.includes(cellNumber)) {

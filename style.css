@@ -6,18 +6,27 @@
 :root {
   --text-color: rgb(205, 205, 205);
 }
+h1 {
+  text-align: center;
+}
 body,
 .canvas,
-.board {
+.board,
+.row {
   display: flex;
   align-items: center;
 }
-body {
-  padding: 3rem;
+body,
+.board {
   flex-direction: column;
+  align-items: unset;
+  justify-content: stretch;
+}
+body {
+  padding: 3rem 0;
   justify-content: space-around;
   color: var(--text-color);
-  background: #ffffff url(./img/background.jpg) no-repeat;
+  background: url(./img/background.jpg) no-repeat;
   background-size: cover;
 }
 .canvas {
@@ -30,8 +39,11 @@ body {
   width: 30rem;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 3rem;
   position: relative;
+}
+.row {
+  min-width: 2rem;
+  height: 10%;
 }
 .board,
 .cell {
@@ -49,8 +61,7 @@ body {
 .cell {
   width: 10%;
   min-width: 2rem;
-  height: 10%;
-  min-height: 2rem;
+  height: 100%;
   background: rgb(33, 33, 33);
 }
 .cell:hover {
