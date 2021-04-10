@@ -7,12 +7,19 @@
   font-family: "playguard";
   src: url(./Plaguard-ZVnjx.otf);
   /* NOTE: This Font is not for commercial use.
+  FONT WEBSITE: link: https://www.fontspace.com/plaguard-esport-font-f56402
   Are You interested with this font for commercial license, 
   please check at this : https://rometheme.net/product/plaguard-esport-font/ */
 }
 :root {
   --text-color: rgb(205, 205, 205);
   --playguard: "playguard", sans-serif;
+  --cell-border: 1px solid var(--text-color);
+  /* --cell-bg-color: rgb(33, 33, 33); */
+  --cell-bg-color: rgb(56, 103, 165);
+  /* --cell-hover-color: rgb(62, 62, 62); */
+  --cell-hover-color: rgb(38, 81, 138);
+  --label-text-color: rgb(221, 56, 56);
 }
 body {
   padding: 3rem 0;
@@ -38,8 +45,10 @@ body,
 body,
 .board {
   flex-direction: column;
-  align-items: unset;
   justify-content: stretch;
+}
+.board {
+  align-items: unset;
 }
 .canvas {
   height: 80%;
@@ -60,7 +69,7 @@ body,
 }
 .board,
 .cell {
-  border: 1px solid rgb(164, 164, 164);
+  border: var(--cell-border);
 }
 .title {
   position: absolute;
@@ -68,21 +77,18 @@ body,
   top: -5.2rem;
   left: 24%;
 }
-.computer-board {
-  background: rgb(118, 118, 118);
-}
 .cell {
   width: 10%;
   min-width: 2rem;
   height: 100%;
-  background: rgb(33, 33, 33);
+  background: var(--cell-bg-color);
 }
 .cell:hover {
   cursor: pointer;
-  background: rgb(62, 62, 62);
+  background: var(--cell-hover-color);
 }
 .label {
-  color: rgb(221, 56, 56);
+  color: var(--label-text-color);
   font-size: 2rem;
   position: absolute;
   transform: translate(-50%, -50%);

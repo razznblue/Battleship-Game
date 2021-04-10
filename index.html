@@ -6,8 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleship</title>
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/splash.css" />
   </head>
   <body>
+    <div id="splash-screen">
+      <div class="container">
+        <h2>Classic Battleship</h2>
+        <div class="options">
+          <h3>Choose One</h3>
+          <div class="game-types">
+            <div class="input-container">
+              <input
+                class="game-type"
+                id="pvp"
+                type="radio"
+                name="game-type"
+                value="pvp"
+                checked
+              /><br />
+              <label for="pvp">Player vs Player</label>
+            </div>
+            <div class="input-container">
+              <input
+                class="game-type"
+                id="pvc"
+                type="radio"
+                name="game-type"
+                value="pvc"
+              /><br />
+              <label for="pvc">Player vs Computer</label>
+            </div>
+          </div>
+          <div class="start-btn"><span>Start Game</span></div>
+        </div>
+      </div>
+    </div>
     <h1>Battleship!</h1>
     <div class="canvas">
       <div class="board player-board">

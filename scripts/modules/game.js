@@ -26,7 +26,9 @@ let gameboardComp = [
 ];
 
 export class Game {
-  constructor() {
+  constructor(choice) {
+    this.gameType = choice;
+    console.log("Game was created. Game Type: " + this.gameType);
     this.drawBoards();
   }
 

@@ -1,0 +1,74 @@
+body {
+  padding: 0;
+  align-items: center;
+  overflow: hidden;
+}
+#splash-screen,
+.container,
+.options,
+.game-types,
+.input-container,
+.start-btn {
+  display: flex;
+}
+#splash-screen {
+  position: absolute;
+  top: 0;
+  width: 120vw;
+  height: 120vh;
+  background: url(../img/splash-img.jpg) no-repeat;
+  background-size: cover;
+  z-index: 100;
+  color: rgb(14, 14, 14);
+  align-items: flex-start;
+  justify-content: center;
+}
+.container {
+  margin-top: 2rem;
+  height: 35%;
+  width: 70%;
+  border-radius: 20px;
+  opacity: 0.9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container h2 {
+  font-size: 3rem;
+}
+.container h3 {
+  font-size: 2rem;
+  text-align: center;
+}
+.options {
+  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.options > * {
+  margin: 0.3rem 0;
+}
+.game-types {
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.input-container {
+  padding: 0 1rem;
+}
+.input-container input {
+  width: 2rem;
+}
+.start-btn {
+  width: 30%;
+  height: 2.5rem;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 0.5rem;
+  background: rgb(156, 189, 209);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
